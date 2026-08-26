@@ -1,0 +1,866 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #eef2ff 0%,
+      #f8fafc 35%,
+      #ffffff 75%
+    );
+
+  color: #111827;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  height: 72px;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-links a {
+  color: #4b5563;
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #4f46e5;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.login-btn {
+  padding: 10px 18px;
+
+  border-radius: 9px;
+
+  background: #eef2ff;
+  color: #4338ca;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #e0e7ff;
+  transform: translateY(-1px);
+}
+
+.create-account-btn {
+  width: 100%;
+
+  padding: 12px 18px;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6366f1
+    );
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 18px rgba(79, 70, 229, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.create-account-btn:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 12px 24px rgba(79, 70, 229, 0.28);
+}
+
+
+/* =========================================
+   SIGNUP / LOGIN PAGE
+========================================= */
+
+.signup-page {
+  min-height: calc(100vh - 72px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 20px;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 470px;
+
+  padding: 38px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 60px rgba(15, 23, 42, 0.1);
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.signup-header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #111827;
+
+  margin-bottom: 8px;
+}
+
+.signup-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+
+/* =========================================
+   FORMS
+========================================= */
+
+.signup-form,
+.job-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.signup-form label,
+.job-form label {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.signup-form input,
+.signup-form select,
+.job-form input,
+.job-form textarea,
+.job-form select {
+  width: 100%;
+
+  padding: 12px 13px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #111827;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.signup-form input:focus,
+.signup-form select:focus,
+.job-form input:focus,
+.job-form textarea:focus,
+.job-form select:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.job-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+
+/* =========================================
+   LOGIN TEXT
+========================================= */
+
+.login-text {
+  margin-top: 22px;
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.login-text span {
+  color: #4f46e5;
+}
+
+.login-text span:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard-page {
+  width: min(1180px, 92%);
+
+  margin: 0 auto;
+
+  padding: 45px 0 70px;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+
+  color: #111827;
+
+  margin-bottom: 7px;
+}
+
+.dashboard-header h2 {
+  font-size: 25px;
+  font-weight: 800;
+
+  color: #111827;
+
+  margin-bottom: 7px;
+}
+
+.dashboard-header p {
+  color: #6b7280;
+}
+
+
+/* =========================================
+   DASHBOARD CARD
+========================================= */
+
+.dashboard-card {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  padding: 26px;
+
+  margin-bottom: 38px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.dashboard-card h2 {
+  font-size: 22px;
+
+  margin-bottom: 22px;
+
+  color: #111827;
+}
+
+.dashboard-card h3 {
+  margin-bottom: 7px;
+}
+
+.dashboard-card p {
+  color: #6b7280;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.dashboard-message {
+  width: 100%;
+
+  margin: 18px 0;
+
+  padding: 13px 16px;
+
+  border-radius: 10px;
+
+  background: #eef2ff;
+
+  border: 1px solid #c7d2fe;
+
+  color: #3730a3;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   JOB SECTION
+========================================= */
+
+.jobs-section {
+  margin-top: 38px;
+}
+
+.jobs-section h2 {
+  font-size: 25px;
+
+  margin-bottom: 22px;
+
+  color: #111827;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 22px;
+}
+
+
+/* =========================================
+   JOB GRID
+========================================= */
+
+.jobs-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+
+  gap: 22px;
+}
+
+
+/* =========================================
+   JOB CARD
+========================================= */
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+
+  padding: 23px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.055);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #c7d2fe;
+
+  box-shadow:
+    0 18px 38px rgba(79, 70, 229, 0.1);
+}
+
+.job-card h3 {
+  font-size: 20px;
+
+  color: #111827;
+
+  margin-bottom: 9px;
+}
+
+.job-card p {
+  color: #6b7280;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  margin-bottom: 7px;
+}
+
+.job-card strong {
+  color: #374151;
+}
+
+
+/* =========================================
+   RESUME UPLOAD
+========================================= */
+
+.resume-upload {
+  margin-top: 15px;
+
+  padding: 16px;
+
+  border: 2px dashed #c7d2fe;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8faff,
+      #eef2ff
+    );
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.resume-upload:hover {
+  border-color: #6366f1;
+
+  background: #eef2ff;
+}
+
+
+/* SELECT RESUME LABEL */
+
+.resume-upload label {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 11px 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6366f1
+    );
+
+  color: white;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 7px 15px rgba(79, 70, 229, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.resume-upload label:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #4338ca,
+      #4f46e5
+    );
+
+  transform: translateY(-1px);
+}
+
+
+/* FILE INPUT */
+
+.resume-upload input[type="file"] {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 12px;
+
+  padding: 8px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 8px;
+
+  background: white;
+
+  color: #4b5563;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.resume-upload input[type="file"]::file-selector-button {
+  padding: 8px 12px;
+
+  margin-right: 9px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: #eef2ff;
+
+  color: #4338ca;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.resume-upload input[type="file"]::file-selector-button:hover {
+  background: #e0e7ff;
+}
+
+
+/* SELECTED RESUME */
+
+.selected-resume {
+  margin-top: 11px;
+
+  padding: 9px 11px;
+
+  border-radius: 8px;
+
+  background: #dcfce7;
+
+  border: 1px solid #bbf7d0;
+
+  color: #166534;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* =========================================
+   VIEW RESUME
+========================================= */
+
+.resume-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: fit-content;
+
+  margin-top: 12px;
+
+  padding: 10px 15px;
+
+  background: #eef2ff;
+
+  color: #4338ca;
+
+  border: 1px solid #c7d2fe;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.resume-button:hover {
+  background: #e0e7ff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   APPLICATION BUTTON AREA
+========================================= */
+
+.job-card .create-account-btn {
+  margin-top: 14px;
+}
+
+.job-card .create-account-btn:disabled {
+  background: #9ca3af;
+
+  box-shadow: none;
+}
+
+
+/* =========================================
+   JOB FORM
+========================================= */
+
+.job-form {
+  max-width: 800px;
+}
+
+.job-form .create-account-btn {
+  margin-top: 5px;
+}
+
+
+/* =========================================
+   STATUS BUTTONS
+========================================= */
+
+.job-card button {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.job-card button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: auto;
+
+    min-height: 68px;
+
+    padding: 14px 5%;
+
+    gap: 15px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    display: none;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .dashboard-page {
+    width: 92%;
+
+    padding-top: 30px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 26px;
+  }
+
+  .signup-page {
+    padding: 30px 16px;
+  }
+
+  .signup-card {
+    padding: 27px 21px;
+
+    border-radius: 16px;
+  }
+
+  .signup-header h1 {
+    font-size: 25px;
+  }
+
+  .section-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-card {
+    padding: 19px;
+  }
+
+  .resume-upload label {
+    width: 100%;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 12px 4%;
+  }
+
+  .nav-links span {
+    display: none;
+  }
+
+  .login-btn {
+    padding: 9px 13px;
+
+    font-size: 13px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 21px;
+  }
+
+  .dashboard-card {
+    padding: 19px;
+  }
+
+  .job-card h3 {
+    font-size: 18px;
+  }
+
+  .resume-upload {
+    padding: 13px;
+  }
+
+  .resume-upload input[type="file"] {
+    font-size: 12px;
+  }
+}
